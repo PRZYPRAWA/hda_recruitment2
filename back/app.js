@@ -16,11 +16,24 @@ const db = {
   ],
 };
 
+const ADDED_TO_DB = { info: "Added to database." };
+
 app.use(bodyParser.json());
 
 app.get("/:name", (req, res) => {
   const matched_people = utils.findMatches(req.params.name, db.people);
   res.send(matched_people);
+});
+
+app.post("/", (req, res) => {
+  const [isValid, info] = utils.validate(req.body);
+  console.log(isValid, info);
+  if (isValid) {
+    db.people.push(req.body);
+    res.status(200).send(ADDED_TO_DB);
+  } else {
+    res.status(400).send(info);
+  }
 });
 
 app.listen(port, () => {
