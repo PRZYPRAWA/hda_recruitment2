@@ -18,10 +18,15 @@ const db = {
   ],
 };
 
+var cors = require("cors");
+
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.get(`/${ENDPOINT}/:name`, (req, res) => {
   const matched_people = utils.findMatches(req.params.name, db.people);
+  console.log(matched_people);
   res.send(matched_people);
 });
 
