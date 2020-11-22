@@ -37,7 +37,32 @@ test("validate person with name and age less than 0", () => {
 
 test("findMatches returns all words that matches", () => {
   const toFind = "a";
-  const toSearch = ["a", "ba", "c"];
+  const toSearch = [{ name: "a" }, { name: "ba" }, { name: "c" }];
   const received = functions.findMatches(toFind, toSearch);
-  const expected = ["a", "ba"];
+  const expected = [{ name: "a" }, { name: "ba" }];
+  expect(received).toStrictEqual(expected);
+});
+
+test("findMatches returns empty array if nothing matches", () => {
+  const toFind = "a";
+  const toSearch = [{ name: "b" }, { name: "c" }];
+  const received = functions.findMatches(toFind, toSearch);
+  const expected = [];
+  expect(received).toStrictEqual(expected);
+});
+
+test("findMatches returns empty array if toSearch array is empty", () => {
+  const toFind = "a";
+  const toSearch = [];
+  const received = functions.findMatches(toFind, toSearch);
+  const expected = [];
+  expect(received).toStrictEqual(expected);
+});
+
+test("findMatches returns empty array if toFind word is empty", () => {
+  const toFind = "";
+  const toSearch = [{ name: "b" }, { name: "c" }];
+  const received = functions.findMatches(toFind, toSearch);
+  const expected = [];
+  expect(received).toStrictEqual(expected);
 });
