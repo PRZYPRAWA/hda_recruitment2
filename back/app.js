@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const utils = require("./functions.js");
+const utils = require("./functions");
 const messages = require("./messages");
 
 const port = 8000;
@@ -25,7 +25,7 @@ app.get(`/${ENDPOINT}/:name`, (req, res) => {
   res.send(matched_people);
 });
 
-app.post(`/${ENDPOINT}/`, (req, res) => {
+app.post(`/${ENDPOINT}`, (req, res) => {
   const [isValid, info] = utils.validate(req.body);
   console.log(isValid, info);
   if (isValid) {
