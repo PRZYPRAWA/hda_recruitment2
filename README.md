@@ -24,17 +24,30 @@
     file in
     ```back/```
     folder and add this text:
-    ```
-    PORT=8000
-    ```
 
-    1. In ``` back/ ``` folder run in terminal
+      ```
+      PORT=8000
+      ```
+
+    1. In
+    ```
+    back/
+    ```
+    folder run in terminal
     ```
     $ npm install
     $ node app.js
     ```
-    2. In ``` front/ ``` just open index.html file.
-    3. To run backend tests type in ``` back/ ``` folder in terminal
+    2. In
+    ```
+    front/
+    ```
+    just open index.html file.
+    3. To run backend tests type in
+    ```
+    back/
+    ```
+    folder in terminal
     ```
     npm run test
     ```
