@@ -23,7 +23,7 @@ input.search {
   margin: 0;
   text-align: center;
   outline: 0;
-  border: 10px solid #fefefe;
+  border: 5px solid black;
   width: 120%;
   left: -10%;
   position: relative;
@@ -31,7 +31,6 @@ input.search {
   z-index: 2;
   border-radius: 5px;
   font-size: 40px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
 }
 
 .suggestions {
@@ -41,10 +40,9 @@ input.search {
 }
 
 .suggestions li {
-  background: rgba(255, 255, 255, 0.616);
+  background: white;
   list-style: none;
-  border-bottom: 1px solid #d8d8d8d8;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  border: 1px solid black;
   margin: 0;
   padding: 20px;
   transition: background 0.2s;
