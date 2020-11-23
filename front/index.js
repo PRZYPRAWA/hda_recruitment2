@@ -23,7 +23,14 @@ function fetchMatches(word, url, suggestions) {
 }
 
 function displayMatches() {
-  fetchMatches(this.value, url, suggestions);
+  let timeout;
+  const later = () => {
+    timeout = null;
+    fetchMatches(this.value, url, suggestions);
+  };
+
+  clearTimeout(timeout);
+  timeout = setTimeout(later, 300);
 }
 
 searchInput.addEventListener("change", displayMatches);
