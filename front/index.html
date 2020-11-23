@@ -6,13 +6,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form class="search-form">
-      <input type="text" class="search" placeholder="Search">
+  <div class="from-container">
+    <form class="form search-form">
+      <input type="text" class="input search" placeholder="Search"/>
       <ul class="suggestions">
         <li>Search for a person</li>
       </ul>
     </form>
 
-    <script src="index.js"></script>
+    <form class="form add-form">
+        <input type="text" class="input add-name" placeholder="Name"/>
+        <input type="text" class="input add-age" placeholder="Age"/>
+        <button class="btn add-btn">Add</button>
+    </form>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
