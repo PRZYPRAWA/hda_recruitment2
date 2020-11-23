@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="from-container">
+  <div class="form-container">
     <form class="form search-form">
       <input type="text" class="input search" placeholder="Search"/>
       <ul class="suggestions">
@@ -14,10 +14,10 @@
       </ul>
     </form>
 
-    <form class="form add-form">
+    <form class="form add-form" method="post">
         <input type="text" class="input add-name" placeholder="Name"/>
         <input type="text" class="input add-age" placeholder="Age"/>
-        <button class="btn add-btn">Add</button>
+        <button type="submit" class="btn add-btn">Add</button>
     </form>
   </div>
   <script src="index.js"></script>

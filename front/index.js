@@ -1,6 +1,8 @@
 const searchInput = document.querySelector(".search");
 const suggestions = document.querySelector(".suggestions");
-const url = "http://localhost:8000/users/";
+const url = "http://localhost:8000/users/"; // backend url
+
+const addForm = document.querySelector(".add-form");
 
 function fetchMatches(word, url, suggestions) {
   if (word) {
@@ -8,13 +10,17 @@ function fetchMatches(word, url, suggestions) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        const matches = data
-          .map(
-            (person) =>
-              `<li><span class="name">${person.name} - ${person.age}</span></li>`
-          )
-          .join("");
-        suggestions.innerHTML = matches;
+        if (data.length !== 0) {
+          const matches = data
+            .map(
+              (person) =>
+                `<li><span class="name">${person.name} - ${person.age}</span></li>`
+            )
+            .join("");
+          suggestions.innerHTML = matches;
+        } else {
+          suggestions.innerHTML = `<li><span class="name">Nothing found</span></li>`;
+        }
       })
       .catch((err) => console.error(err));
   } else {
@@ -33,5 +39,37 @@ function displayMatches() {
   timeout = setTimeout(later, 300);
 }
 
+function sendPost(e) {
+  e.preventDefault();
+  const name = e.target[0].value;
+  const age = e.target[1].value;
+
+  if (name && !isNaN(age)) {
+    const data = {
+      name: name,
+      age: age,
+    };
+    fetch(url, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(data),
+    }).then((res) => console.log(res));
+
+    e.target[0].value = "";
+    e.target[1].value = "";
+  }
+  console.log(name);
+  console.log(age);
+}
+
 searchInput.addEventListener("change", displayMatches);
 searchInput.addEventListener("keyup", displayMatches);
+
+addForm.addEventListener("submit", (e) => sendPost(e));
