@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const utils = require("./functions");
 const messages = require("./messages");
 
-const port = 8000;
 const ENDPOINT = "users";
 
 const db = {
@@ -41,8 +41,8 @@ app.post(`/${ENDPOINT}`, (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}!`);
+app.listen(process.env.PORT, () => {
+  console.log(`App listening on port ${process.env.PORT}!`);
 });
 
 module.exports = app;
