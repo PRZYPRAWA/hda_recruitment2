@@ -1,7 +1,7 @@
-const searchInput = document.querySelector(".search");
-const suggestions = document.querySelector(".suggestions");
 const url = "http://localhost:8000/users/"; // backend url
 
+const searchInput = document.querySelector(".search");
+const suggestions = document.querySelector(".suggestions");
 const addForm = document.querySelector(".add-form");
 
 function fetchMatches(word, url, suggestions) {
@@ -39,24 +39,46 @@ function displayMatches() {
   timeout = setTimeout(later, 300);
 }
 
+function modal(info, error = false, time = 1000) {
+  const body = document.querySelector("body");
+  const mod = document.createElement("div");
+
+  function modalOn() {
+    mod.className = `modal ${error ? "modal--error" : ""}`;
+    mod.innerText = info;
+
+    body.appendChild(mod);
+  }
+
+  function modalOff() {
+    body.removeChild(mod);
+  }
+
+  modalOn();
+  setTimeout(modalOff, time);
+}
+
 function sendPost(e) {
   e.preventDefault();
   const name = e.target[0].value;
   const age = e.target[1].value;
-  console.log(name);
-  console.log(age);
+  console.log(name, age);
 
   if (!name) {
-    console.log("Name is not defined");
+    const info = "Name is not defined";
+    modal(info, true);
   } else if (!age || isNaN(age)) {
-    console.log("Age is not defined");
+    const info = "Age is not defined";
+    modal(info, true);
   } else if (age <= 0) {
-    console.log("Age is less or equal 0");
+    const info = "Age is less or equal 0";
+    modal(info, true);
   } else if (name && age && !isNaN(age)) {
     const data = {
       name: name,
       age: age,
     };
+    let status;
     fetch(url, {
       method: "POST",
       mode: "cors",
@@ -69,7 +91,14 @@ function sendPost(e) {
       referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        status = res.status;
+        return res.json();
+      })
+      .then((elem) => {
+        console.log(elem);
+        modal(elem.info, status === 200 ? false : true);
+      })
       .catch((err) => console.error(err));
 
     e.target[0].value = "";

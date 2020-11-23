@@ -23,10 +23,6 @@ input {
   margin: 50px auto;
 }
 
-.add-form {
-
-}
-
 input.input {
   margin: 0;
   text-align: center;
@@ -50,7 +46,7 @@ input.input {
   justify-content: space-between;
 
  -webkit-box-shadow: inset -4px -4px 15px -2px #d8d8d8;
-box-shadow: inset -4px -4px 15px -2px #d8d8d8;
+  box-shadow: inset -4px -4px 15px -2px #d8d8d8;
 }
 
 .suggestions {
@@ -68,4 +64,23 @@ box-shadow: inset -4px -4px 15px -2px #d8d8d8;
   transition: background 0.2s;
   display: flex;
   justify-content: space-between;
+}
+
+.modal {
+    position: relative;
+    padding: 40px 50px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid black;
+    z-index: 60000;
+    width: 400px;
+    min-height: 100px;
+    left: 50%;
+    margin-left: -200px;
+    max-height: 80%;
+    box-sizing: border-box;
+}
+
+.modal--error {
+  background: red;
 }
