@@ -6,18 +6,17 @@
 
 ## Tech stack
   FE:
-  - vanilla js (es5-es11) (modern browsers only)
-  - no css preprocessor
-  - no html templates
+  - vanilla js
 
   BE:
   - node.js
   - express.js
+  - jest and supertest for testing
 
 ## Running app
 
 To run the app:
-1. In ``` back/ ```
+1. Backend - In ``` back/ ```
     folder run in terminal
     ```bash
     $ npm install
@@ -29,7 +28,7 @@ To run the app:
     PORT=8000
     ```
     in it.
-2. In
+2. Frontend - In
     ```bash
     front/
     ```
@@ -39,3 +38,13 @@ To run the app:
     ```bash
     npm run test
     ```
+
+## Screenshots
+
+![Main app](images/main.png "Main app")
+
+![Added to db](images/added_to_db.png "Added to db")
+
+![Name not defined](images/name_not_defined.png "Name is not defined")
+
+![Negative age](images/negative_age.png "Negative age")
