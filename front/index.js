@@ -43,8 +43,16 @@ function sendPost(e) {
   e.preventDefault();
   const name = e.target[0].value;
   const age = e.target[1].value;
+  console.log(name);
+  console.log(age);
 
-  if (name && !isNaN(age)) {
+  if (!name) {
+    console.log("Name is not defined");
+  } else if (!age || isNaN(age)) {
+    console.log("Age is not defined");
+  } else if (age <= 0) {
+    console.log("Age is less or equal 0");
+  } else if (name && age && !isNaN(age)) {
     const data = {
       name: name,
       age: age,
@@ -60,13 +68,13 @@ function sendPost(e) {
       redirect: "follow",
       referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
-    }).then((res) => console.log(res));
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
 
     e.target[0].value = "";
     e.target[1].value = "";
   }
-  console.log(name);
-  console.log(age);
 }
 
 searchInput.addEventListener("change", displayMatches);
