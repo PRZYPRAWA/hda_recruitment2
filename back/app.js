@@ -41,8 +41,9 @@ app.post(`/${ENDPOINT}`, (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`App listening on port ${process.env.PORT}!`);
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
 });
 
 module.exports = app;
