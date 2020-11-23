@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const utils = require("./functions");
+const functions = require("./functions");
 const messages = require("./messages");
 
 const ENDPOINT = "users";
@@ -25,13 +25,13 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get(`/${ENDPOINT}/:name`, (req, res) => {
-  const matched_people = utils.findMatches(req.params.name, db.people);
+  const matched_people = functions.findMatches(req.params.name, db.people);
   console.log(matched_people);
   res.send(matched_people);
 });
 
 app.post(`/${ENDPOINT}`, (req, res) => {
-  const [isValid, info] = utils.validate(req.body);
+  const [isValid, info] = functions.validate(req.body);
   console.log(isValid, info);
   if (isValid) {
     db.people.push(req.body);
