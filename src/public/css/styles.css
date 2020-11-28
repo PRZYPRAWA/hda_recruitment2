@@ -1,0 +1,86 @@
+html {
+  box-sizing: border-box;
+  background: #f8f8f8;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+}
+
+.form {
+  max-width: 300px;
+  margin: 50px auto;
+}
+
+input.input {
+  margin: 0;
+  text-align: center;
+  outline: 0;
+  border: 5px solid black;
+  width: 120%;
+  left: -10%;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  border-radius: 5px;
+  font-size: 40px;
+}
+
+.btn {
+  margin:20px -15px;
+  background: white;
+  border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+
+ -webkit-box-shadow: inset -4px -4px 15px -2px #d8d8d8;
+  box-shadow: inset -4px -4px 15px -2px #d8d8d8;
+}
+
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.suggestions li {
+  background: white;
+  list-style: none;
+  border: 1px solid black;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+    position: relative;
+    padding: 40px 50px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid black;
+    z-index: 60000;
+    width: 400px;
+    min-height: 100px;
+    left: 50%;
+    margin-left: -200px;
+    max-height: 80%;
+    box-sizing: border-box;
+}
+
+.modal--error {
+  background: red;
+}
