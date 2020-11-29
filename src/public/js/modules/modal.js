@@ -1,4 +1,4 @@
-export function modal(info, error = false, time = 10000) {
+export function modal(info, error = false, time = 1000) {
   const body = document.querySelector("body");
   const mod = document.createElement("div");
 

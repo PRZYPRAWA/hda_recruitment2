@@ -1,5 +1,5 @@
+require("dotenv").config();
 const express = require("express");
-var path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const functions = require("./functions");
@@ -20,7 +20,6 @@ const db = {
 
 app.use(bodyParser.json());
 app.use(express.static("./public"));
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get(`/${ENDPOINT}/:name`, (req, res) => {
   const matched_people = functions.findMatches(req.params.name, db.people);
@@ -39,7 +38,7 @@ app.post(`/${ENDPOINT}`, (req, res) => {
   }
 });
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`);
 });
