@@ -29,6 +29,8 @@ To run the app:
     ```
     in it.
 
+    Open ``` localhost:8000/ ``` in the browser.
+
 2. To run backend tests type in ``` src/ ``` folder in terminal
     ```bash
     npm run test
