@@ -16,25 +16,20 @@
 ## Running app
 
 To run the app:
-1. Backend - In ``` back/ ```
+1. Backend - In ``` src/ ```
     folder run in terminal
     ```bash
     $ npm install
 
     $ node app.js
     ```
-    Optionally, create ``` .env ``` file in ``` back/ ``` folder and add
+    Optionally, create ``` .env ``` file in ``` src/ ``` folder and add
     ```
     PORT=8000
     ```
     in it.
-2. Frontend - In
-    ```bash
-    front/
-    ```
-    folder just open index.html file.
 
-3. To run backend tests type in ``` back/ ``` folder in terminal
+2. To run backend tests type in ``` src/ ``` folder in terminal
     ```bash
     npm run test
     ```
