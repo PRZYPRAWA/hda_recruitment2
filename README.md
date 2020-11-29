@@ -16,7 +16,7 @@
 ## Running app
 
 To run the app:
-1. Backend - In ``` src/ ```
+1. In ``` src/ ```
     folder run in terminal
     ```bash
     $ npm install
